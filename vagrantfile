@@ -5,7 +5,7 @@ Vagrant.configure(2) do |config|
 
   # Setup Network
   config.vm.network "private_network", type: "dhcp"
-  config.vm.network "public_network", type: "dhcp"
+  #config.vm.network "public_network", type: "dhcp"
   config.vm.network :forwarded_port, guest: 80, host: 8972, auto_correct: true # Forward Web Port
   config.vm.network :forwarded_port, guest: 3306, host: 8973, auto_correct: true # Forward MySQL Port
 
@@ -40,6 +40,6 @@ Vagrant.configure(2) do |config|
 
 
   ### Setup SSH to use default vagrant keys - note: less secure
-  config.ssh.insert_key = false
+  config.ssh.keys_only = true
 
 end
