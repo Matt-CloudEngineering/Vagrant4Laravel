@@ -1,6 +1,6 @@
 server {
         listen 80;
-        server_name localhost internal todaysbestdeals.localhost todaysbestdeals.test;
+        server_name localhost internal;
 
         root /var/www/public/;
         index index.html index.htm index.php;
