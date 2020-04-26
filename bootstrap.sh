@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 echo "Provisioning virtual machine..."
 
-echo "WWW Shared Folder created"
-ln -s /var/www/public www
+#echo "WWW Shared Folder created"
+#ln -s /var/www/public www
 
 echo "Initial Update"
 apt-get update -y  &> output.txt

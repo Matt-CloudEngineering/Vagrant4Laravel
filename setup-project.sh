@@ -9,20 +9,23 @@ read -p "What Git Repository to do want to clone (deafults to Latest Laravel on 
 gitclone=${gitclone:-https://github.com/laravel/laravel.git}
 
 echo "Cloning Repository"
-git clone $gitclone /var/www
+git clone $gitclone /vagrant/www
 
 echo "Installing Project Dependencies"
-composer install -d /var/www
+composer install -d /vagrant/www
 
 echo "Building .env file"
-cp /var/www/.env.example /var/www/.env
+cp /vagrant/www/.env.example /vagrant/www/.env
 
 echo "Generating Laravel Key"
-php /var/www/artisan key:generate
+php /vagrant/www/artisan key:generate
 
 echo "Linking Storage"
 # if this fails make sure terminal is running as administrator
-php /var/www/artisan storage:link
+php /vagrant/www/artisan storage:link
 
 echo "Laravel installed"
-php /var/www/artisan -V
+php /vagrant/www/artisan -V
+
+#echo "Home directory shortcut created!"
+#ln -s /vagrant/www ./www
